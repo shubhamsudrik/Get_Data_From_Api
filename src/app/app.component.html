@@ -1,0 +1,87 @@
+ 0002634717
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <style>
+     .form-group {
+       display: flex;
+       align-items: center;
+       margin-bottom: 10px;
+     }
+ 
+     .form-group label {
+       flex-basis: 150px; /* Adjust the width as needed */
+       margin-right: 10px;
+     }
+ 
+     .form-group input {
+       flex: 1;
+     }
+ 
+     .grid-table {
+       margin-top: 20px;
+       border-collapse: collapse;
+       width: 100%;
+     }
+ 
+     .grid-table th,
+     .grid-table td {
+       border: 1px solid black;
+       padding: 5px;
+     }
+   </style>
+ </head>
+ <body>
+   <div class="row card top-padding">
+     <div class="form-responsive row">
+       <div class="six columns">
+         <button soho-button="primary" (click)="onClickLoad()">Load</button>
+       </div>
+     </div>
+ 
+     <div class="form-responsive row top-padding">
+       <div class="six columns">
+         <div class="form-group">
+           <label for="di-cono">ORNO Number:</label>
+           <input type="text" id="di-cono" [(ngModel)]="orNo" />
+         </div>
+ 
+         <div class="form-group">
+           <label for="di-cono">CONO Number:</label>
+           <input type="text" id="di-cono" [(ngModel)]="coNo" />
+         </div>
+       </div>
+     </div>
+ 
+     <div class="form-responsive row top-padding">
+       <div class="six columns">
+         <div class="field">
+           <table class="grid-table" border="1px solid red">
+             <thead>
+               <tr>
+                 <th>Line No</th> 
+                 <th>Line Suffix</th>
+                 <th>Item No</th>
+                 <th>Item Description</th>
+                 <th>Order Qty</th>
+                 <th>Net Amount</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr *ngFor="let item of lineitems">
+                 <td>{{ item.PONR }}</td>
+                 <td>{{ item.POSX }}</td>
+                 <td>{{ item.ITNO }}</td>
+                 <td>{{ item.ITDS }}</td>
+                 <td>{{ item.ORQT }}</td>
+                 <td>{{ item.NLAM }}</td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div>
+     </div>
+   </div>
+ </body>
+ </html>
+ 
